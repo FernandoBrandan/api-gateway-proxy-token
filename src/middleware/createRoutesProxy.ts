@@ -15,7 +15,7 @@ const generateRoutesFile = async () => {
     host: '172.17.0.2',
     database: 'gatewaydb',
     user: 'root',
-    password: 'gateway',
+    password: 'gateway', 
   };
 
   let conn;
@@ -55,6 +55,7 @@ const generateRoutesFile = async () => {
             auth: ${route.auth},
             proxy: {
               target: "${route.target}",
+              changeOrigin: true,              
             },
           }`
         )

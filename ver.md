@@ -16,10 +16,6 @@ Si los datos están en el cache, los devuelve.
 Si no, consulta el microservicio, almacena los datos en el cache y los devuelve.
 
 
-# version NGINX
-
-ngx_http_limit_req_module 
-
 # Ver despues
 - Circuit Breaker: Protege tu sistema de fallos en cascada mediante un patrón de interrupción si un microservicio está sobrecargado o no responde.
 Ejemplo: Librerías como opossum o implementaciones con Hystrix.

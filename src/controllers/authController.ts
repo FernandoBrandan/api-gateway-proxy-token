@@ -65,7 +65,7 @@ export const validate = async (req: Request, res: Response): Promise<any> => {
       return res.status(401).json({ error: "El token no es válido" });
     }
 
-    // Aquí podrías obtener al usuario y retornarlo si es necesario
+    // Obtener usuario y retornarlo si es necesario
     // Ejemplo: const user = await User.findById(validToken.id);
 
     return res.status(200).json({ success: "Usuario validado correctamente" });

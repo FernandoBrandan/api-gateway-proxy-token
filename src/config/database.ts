@@ -1,8 +1,5 @@
-import mongoose from "mongoose";  // Usar import si estás usando TypeScript o ES6
-
+import mongoose from "mongoose";
 const uri = "mongodb://127.0.0.1:27017/apiGateway";
-
-// Función para conectarse a MongoDB usando async/await
 async function connectToDatabase() {
   try {
     await mongoose.connect(uri, {
@@ -14,10 +11,8 @@ async function connectToDatabase() {
     console.error(err.message);
   }
 }
-
-connectToDatabase();  // Llamada a la función de conexión
-
-export default mongoose.connection;  // Exporta la conexión de Mongoose
+connectToDatabase();  
+export default mongoose.connection;  
 
 // MySQL
 // Firebase 

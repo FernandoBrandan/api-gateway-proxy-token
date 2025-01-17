@@ -49,8 +49,7 @@ import userRoutes from "./routes/userRoute";
 app.use("/api/users", userRoutes);
 /****************************************************** */
 // PRUEBA 
-app.get("/api/test2", () => {
-  // curl -k --cert apigateway.crt --key apigateway.key http://localhost:5000/api/test
+app.get("/api/test3", () => {
   console.log("Test apigateway");
 })
 /****************************************************** */
