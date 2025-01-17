@@ -1,13 +1,15 @@
 # Version con Token
 
-Esta es una API de autenticación desarrollada con Node.js y TypeScript. Implementa un sistema de registro, inicio de sesión y validación de usuarios mediante tokens JWT. Utiliza MongoDB para gestionar usuarios y MySQL para registrar rutas de proxy.
+Esta API de autenticación desarrollada con Node.js y TypeScript está diseñada como un API Gateway dentro de una arquitectura de microservicios, lo que permite un enfoque escalable y modular. Su principal objetivo es actuar como un punto centralizado para gestionar solicitudes hacia diferentes servicios, ofreciendo autenticación, autorización y enrutamiento seguro.
 
+La API implementa un sistema de registro, inicio de sesión y validación de usuarios utilizando tokens JWT (JSON Web Tokens) para garantizar la seguridad de las operaciones. Al estar integrada en una arquitectura de microservicios, facilita la comunicación entre múltiples servicios independientes, asegurando que las solicitudes sean procesadas de manera eficiente y segura.
 
 ## Tecnologias 
 
 Backend: Node.js con TypeScript
 Base de Datos: MongoDB (usuarios) y MySQL (rutas proxy)
 Contenedores: Docker
+
 
 ## Dependencias principales
 
