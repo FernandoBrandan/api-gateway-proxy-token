@@ -12,16 +12,16 @@ interface ProxyRoute {
 
 const generateRoutesFile = async () => {
   const access: ConnectionOptions = {
-    host: '172.17.0.2',
-    database: 'gatewaydb',
-    user: 'root',
-    password: 'gateway', 
+    host: process.env.MYSQL_HOST,
+    database: process.env.MYSQL_USER,
+    user: process.env.MYSQL_PASSWORD,
+    password: process.env.MYSQL_DB,
   };
 
   let conn;
   try {
     conn = await mysql.createConnection(access);
-    const [rows]: [any[], any[]] = await conn.query('SELECT * FROM proxy_routes');
+    const [rows]: [any[], any[]] = await conn.query('SELECT api, type, url, auth, target FROM proxy_routes');
 
     const routes: ProxyRoute[] = rows.map((result: any) => ({
       api: result.api,

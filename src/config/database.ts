@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-const uri = "mongodb://127.0.0.1:27017/apiGateway";
+const uri = `${process.env.MONGO_URI}`;
 async function connectToDatabase() {
   try {
     await mongoose.connect(uri, {

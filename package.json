@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "tsc && cp -r ./src/cert ./dist/cert",
+    "build": "tsc",
     "start": "nodemon dist/index.js",
     "dev": "npm run build  && concurrently \"tsc -w\" \"nodemon dist/index.js\""
   },
