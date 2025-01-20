@@ -11,6 +11,7 @@ interface ProxyRoute {
 }
 
 const generateRoutesFile = async () => {
+  /** */
   const access: ConnectionOptions = {
     host: process.env.MYSQL_HOST,
     database: process.env.MYSQL_USER,
