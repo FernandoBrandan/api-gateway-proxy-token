@@ -1,8 +1,6 @@
 import { Application, Request } from "express";
 import { createProxyMiddleware } from "http-proxy-middleware";
-import { ClientRequest } from "http"; // Importar ClientRequest de http
-
-
+import { ClientRequest } from "http"; 
 const setupProxies = (app: Application, routes: any[]) => {
   routes.forEach((r) => {
     console.log(`Proxying ${r.url} to ${r.proxy.target}`);
@@ -15,7 +13,7 @@ const setupProxies = (app: Application, routes: any[]) => {
         proxyReq.setHeader('Authorization', authHeader);
         }
       },
-      ...r.proxy, // Agregar cualquier otra opción que puedas tener en r.proxy
+      ...r.proxy, // Agrega todas las opciones de r.proxy
     })
     );
   });

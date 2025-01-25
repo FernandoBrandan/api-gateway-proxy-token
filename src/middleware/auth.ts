@@ -8,7 +8,7 @@ function ensureAuth(req: Request, res: Response, next: NextFunction): void {
     if (!token) {
       res.sendStatus(401);
     }
-    jwt.verify("token", "process.env.JWT_TOKEN_SECRET");
+    jwt.verify(token as string, process.env.JWT_TOKEN_SECRET as string);
     next();
   } catch (error) {
     res.status(400).json({ error: "invalid token" });
