@@ -46,19 +46,16 @@ export const login = async (req: Request, res: Response): Promise<any> => {
     const validPass = await passwordDecrypt(req.body.password as string, user.password as string);
     if (!validPass) { throw new Error("La contraseña es incorrecta"); }
 
+    const tokenSecret = process.env.JWT_TOKEN_SECRET as string;
     const token = jwt.sign(
       {
         name: user.name,
         surname: user.surname,
         email: user.email
       },
-      process.env.JWT_TOKEN_SECRET as string,
-      {
-        expiresIn: process.env.JWT_EXPIRE
-      }
-    );
-    return res.status(200).json({ success: "Usuario logueado correctamente", token });
+      tokenSecret);
 
+    return res.status(200).json({ success: "Usuario logueado correctamente", token });
   } catch (err) {
     return res.status(500).json({
       error: "Error endpoint login",

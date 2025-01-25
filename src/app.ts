@@ -50,7 +50,6 @@ process.env.NODE_ENV === "development" ? app?.use(morgan("dev")) : app?.use(morg
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
-
 /****************************************************** */
 // Auth, Proxy
 import routes from "./routesProxy/index";
@@ -58,22 +57,16 @@ import setupAuth from "./middleware/auth";
 setupAuth(app, routes);
 import proxyRoutes from "./middleware/proxy";
 proxyRoutes(app, routes);
-
 /****************************************************** */
 // Routes
 import authRoutes from "./routes/authRoute";
 app.use("/api/auth", authRoutes);
 //routes
 import userRoutes from "./routes/userRoute";
-app.use("/api/users", userRoutes);
-/****************************************************** */
-// PRUEBA 
-app.get("/api/test3", () => {
-  console.log("Test apigateway");
-})
+app.use("/api/users", userRoutes); 
 /****************************************************** */
 // Error Handler
 import errorHandler from "./utils/errorHandle";
-app?.use(errorHandler);
+app.use(errorHandler);
 /****************************************************** */
 export default app;
