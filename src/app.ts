@@ -3,6 +3,9 @@ const app = express();
 /****************************************************** */
 // middleware 
 /****************************************************** */
+import morgan from "morgan";
+process.env.NODE_ENV === "development" ? app?.use(morgan("dev")) : app?.use(morgan("combined"));
+/****************************************************** */
 import helmet from "helmet";
 app.use(helmet(
   {
@@ -43,9 +46,6 @@ if (process.env.NODE_ENV === "development") {
 } else {
   app.use(cors(corsOptions));
 }
-/****************************************************** */
-import morgan from "morgan";
-process.env.NODE_ENV === "development" ? app?.use(morgan("dev")) : app?.use(morgan("combined"));
 /****************************************************** */
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
