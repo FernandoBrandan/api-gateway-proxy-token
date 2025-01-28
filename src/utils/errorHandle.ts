@@ -1,12 +1,14 @@
-import { ErrorRequestHandler, Request, Response, NextFunction } from "express";
+import { NextFunction, Request, Response } from "express";
 
-const errorHandler: ErrorRequestHandler = (err, __req: Request, res: Response, __next: NextFunction) => {
+interface CustomError extends Error {
+  statusCode?: number;
+}
+
+const errorHandler = (err: CustomError, _req: Request, res: Response, _next: NextFunction) => {
   let error = { ...err };
   error.message = err.message;
-  res.status(error.statusCode || 500).json({
-    success: false,
-    error: error.message || "Server Error",
+  res.status(error.statusCode || 500).json({  
+    error: error.message || "Server Error"
   });
 };
-
 export default errorHandler;

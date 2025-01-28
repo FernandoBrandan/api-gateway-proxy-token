@@ -1,17 +1,20 @@
 import { Application, Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 
-function ensureAuth(req: Request, res: Response, next: NextFunction): void {
+function ensureAuth(req: Request, __res: Response, next: NextFunction): void {
   try {
+    if (!req.headers.authorization) {
+      throw new Error("No headers.authorization provided")
+    }
     const authHeader = req.headers.authorization;
     const token = authHeader && authHeader.split(" ")[1];
-    if (!token) {
-      res.sendStatus(401);
+    if (!token || token === "null") {
+      throw new Error("No token provided")
     }
     jwt.verify(token as string, process.env.JWT_TOKEN_SECRET as string);
     next();
   } catch (error) {
-    res.status(400).json({ error: "invalid token" });
+    next(error)
   }
 }
 
