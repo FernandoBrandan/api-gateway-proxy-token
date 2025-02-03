@@ -16,4 +16,6 @@ const UserSchema = new mongoose.Schema(
   }
 );
 
+//agregar legajo o algun id
+
 export default mongoose.model("User", UserSchema);
