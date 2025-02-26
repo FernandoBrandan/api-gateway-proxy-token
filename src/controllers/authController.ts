@@ -4,6 +4,9 @@ import User from "../models/userModel";
 import { registerValidateHandler, loginValidateHandler } from "../utils/userValidate";
 import { passwordEncrypt, passwordDecrypt } from "../utils/passwordEncryption";
 
+// import error from "../utils/error"
+// import success from "../utils/success"
+
 export const register = async (req: Request, res: Response): Promise<any> => {
   try {
     const validated = registerValidateHandler(req.body);
@@ -49,9 +52,9 @@ export const login = async (req: Request, res: Response): Promise<any> => {
     const tokenSecret = process.env.JWT_TOKEN_SECRET as string;
     const token = jwt.sign(
       {
-        name: user.name,
-        surname: user.surname,
-        email: user.email
+        id: user.identification?.number,
+        email: user.email,
+        role: user.role,
       },
       tokenSecret);
 

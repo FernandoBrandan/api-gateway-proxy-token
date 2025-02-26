@@ -1,7 +1,3 @@
-/**
- * Ejemplo de categorias 
- */
-
 const ROUTES = [
   {
     url: "/api/categories",
@@ -29,39 +25,4 @@ const ROUTES = [
   },
 ];
 
-export default ROUTES;
-
- /**
-  * Ejemplo de productos 
-  */
-
- /**
- const ROUTES = [
-  {
-    url: "/free",
-    auth: false,
-    creditCheck: false, 
-    proxy: {
-      target: "https://www.google.com",
-      changeOrigin: true,
-      pathRewrite: {
-        [`^/free`]: "",
-      },
-    },
-  },
-  {
-    url: "/premium",
-    auth: true,
-    creditCheck: true,
-    proxy: {
-      target: "https://www.google.com",
-      changeOrigin: true,
-      pathRewrite: {
-        [`^/premium`]: "",
-      },
-    },
-  },
-];
-
-export default ROUTES;
- */
+export default ROUTES; 

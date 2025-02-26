@@ -10,8 +10,7 @@ interface ProxyRoute {
   target: string;
 }
 
-const generateRoutesFile = async () => {
-  /** */
+const generateRoutesFile = async () => { 
   const access: ConnectionOptions = {
     host: process.env.MYSQL_HOST,
     user: process.env.MYSQL_USER,

@@ -4,7 +4,12 @@ const app = express();
 // middleware 
 /****************************************************** */
 import morgan from "morgan";
-process.env.NODE_ENV === "development" ? app?.use(morgan("dev")) : app?.use(morgan("combined"));
+
+if (process.env.NODE_ENV === 'development') {
+  app?.use(morgan('dev'))
+} else {
+  app.use(morgan('combined'))
+}
 /****************************************************** */
 import helmet from "helmet";
 app.use(helmet(
@@ -22,7 +27,7 @@ app.use(helmet(
 import rateLimit from "express-rate-limit";
 const limiter = rateLimit({
   windowMs: 5 * 60 * 1000,
-  limit: 50,  
+  limit: 50,
   max: 100,
   standardHeaders: true,
   legacyHeaders: false,
@@ -63,10 +68,10 @@ import authRoutes from "./routes/authRoute";
 app.use("/api/auth", authRoutes);
 //routes
 import userRoutes from "./routes/userRoute";
-app.use("/api/users", userRoutes); 
+app.use("/api/users", userRoutes);
 /****************************************************** */
 // Error Handler
-import errorHandler from "./utils/errorHandle";
+import errorHandler from "./middleware/errorHandle";
 app.use(errorHandler);
 /****************************************************** */
 export default app;
