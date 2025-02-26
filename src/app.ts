@@ -54,7 +54,6 @@ if (process.env.NODE_ENV === "development") {
 /****************************************************** */
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static("public"));
 /****************************************************** */
 // Auth, Proxy
 import routes from "./routesProxy/index";
