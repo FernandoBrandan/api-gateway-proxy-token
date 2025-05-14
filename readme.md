@@ -1,9 +1,3 @@
----
-title: "Api Gateway"
-description: "Punto centralizado para gestionar solicitudes hacia diferentes servicios, ofreciendo autenticación, autorización y enrutamiento seguro."
-slug: "apigateway"
----
-
 ## ApiGateway version Token
 
 Esta API de autenticación desarrollada con Node.js y TypeScript está diseñada como un API Gateway dentro de una arquitectura de microservicios, lo que permite un enfoque escalable y modular.
