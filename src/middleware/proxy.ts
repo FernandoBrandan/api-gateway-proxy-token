@@ -27,7 +27,7 @@ const setupProxies = (app: Application, routes: ProxyRoute[]) => {
         target: r.proxy.target,
         changeOrigin: true,
         plugins: [simpleRequestLogger],
-        ...r.proxy, // Agrega todas las opciones de r.proxy
+        ...r.proxy,
       })
     );
   });

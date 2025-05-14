@@ -2,9 +2,16 @@ import dotenv from "dotenv";
 dotenv.config();
 import app from "./app";
 import "./config/database";
-let port = process.env.PORT || 3001;
+import "./eureka-client"; 
+import { getConfig } from "./getConfig";
 
-app.listen(port, () => {
-    console.log(`apigateway - Server listen on port http://localhost:${port}`);
-});
+(async () => {
+  const config = await getConfig("books");
+  const port = process.env.PORT
+    ? parseInt(process.env.PORT, 10)
+    : config.port;
 
+  app.listen(port, () => {
+    console.log(`Gateway - Server listening on http://localhost:${port}`);
+  });
+})();

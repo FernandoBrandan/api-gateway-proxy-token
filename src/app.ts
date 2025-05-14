@@ -41,9 +41,9 @@ const corsOptions = {
   origin: process.env.NODE_ENV === "development"
     ? "*"
     : "https://your-production-domain.com",
-  methods: ["GET", "POST"],  // Permite solo métodos HTTP específicos
-  allowedHeaders: ["Content-Type", "Authorization"],  // Permite solo encabezados específicos  
-  credentials: true  // Permite el envío de cookies o credenciales
+  methods: ["GET", "POST"],  
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true  
 };
 if (process.env.NODE_ENV === "development") {
   console.log("cors !!!!!!!!!!!!!1");
@@ -56,7 +56,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 /****************************************************** */
 // Auth, Proxy
-import routes from "./routesProxy/index";
+import routes from "./routesProxy";
 import setupAuth from "./middleware/auth";
 setupAuth(app, routes);
 import proxyRoutes from "./middleware/proxy";

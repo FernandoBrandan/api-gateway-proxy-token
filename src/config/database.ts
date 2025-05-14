@@ -16,6 +16,4 @@ async function connectToDatabase() {
 }
 connectToDatabase();  
 export default mongoose.connection;  
-
-// MySQL
-// Firebase 
+ 

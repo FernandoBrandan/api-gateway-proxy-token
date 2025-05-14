@@ -8,3 +8,6 @@ router.post("/login", login);
 router.get("/validate", validate);
 
 export default router;
+
+// TODO:
+// router.post("/generate_apiKey", generate_apiKey);

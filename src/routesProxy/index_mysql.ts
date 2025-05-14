@@ -22,7 +22,6 @@ const getroutes = () => {
         const routeModule = require(modulePath);
         const routesFromModule = routeModule.default || routeModule;
         if (!Array.isArray(routesFromModule)) {
-            // Si no es un array, crea uno a partir de los valores
             routes = [...routes, routesFromModule];
         } else {
             routes = [...routes, ...routesFromModule];
